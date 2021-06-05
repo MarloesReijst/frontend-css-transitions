@@ -1,14 +1,23 @@
 :root {
     --menu-bar-width: 60px;
     --menu-bar-height: 10px;
+    --menu-transition: ease-in-out 0.5s;
 }
+
+.container {
+    /*display: inline-block;*/
+    width: 60px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+ }
 
 #menu {
     background-color: #D84282;
     position: relative;
     width: var(--menu-bar-width);
     height: var(--menu-bar-height);
-    margin: 100px;
+    transition: var(--menu-transition);
+    /*margin: 100px;*/
 }
 
 #menu::before,
@@ -19,6 +28,7 @@
     width: var(--menu-bar-width);
     height: var(--menu-bar-height);
     position: absolute;
+    transition: var(--menu-transition)
 }
 
 #menu::before {
@@ -29,5 +39,19 @@
 #menu::after {
     left: 0;
     top: 20px;
+}
+
+#menu:hover {
+    background-color: transparent;
+}
+
+#menu:hover::after {
+    transform: rotate(-45deg);
+    top: 0;
+}
+
+#menu:hover::before {
+    transform: rotate(45deg);
+    top: 0;
 }
 
